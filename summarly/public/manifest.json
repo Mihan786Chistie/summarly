@@ -1,0 +1,16 @@
+{ 
+    "manifest_version": 3,
+    "name": "Summarly",
+    "description": "Introducing Summarly: your go-to extension for quick and easy YouTube video summaries. Summarly automatically extracts and condenses video content into concise, easy-to-read overviews, highlighting key points and takeaways. Perfect for staying informed on the go, Summarly saves you time and helps you get straight to the essentials.",
+    "version": "1.0",
+    "permissions": ["activeTab", "declarativeContent"],
+    "host_permissions": ["https://www.youtube.com/*", "http://127.0.0.1:5000/"],
+    
+    "action": {
+        "default_popup": "index.html"
+    },
+
+    "icons": {
+        "32": "vite.svg"
+    }
+}

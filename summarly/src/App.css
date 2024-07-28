@@ -1,0 +1,32 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: "Poppins", sans-serif;
+  background-color: rgba(0,0,0,0.06);
+}
+
+.card {
+  padding: 2em;
+}
+
+.markdown-content p {
+  font-size: 18px;
+}
+
+.markdown-content h1 {
+  font-size: 32px;
+}
+
+.markdown-content h2 {
+  font-size: 28px;
+}
+
+.markdown-content ul{
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.markdown-content li{
+  font-size: 15px;
+}
