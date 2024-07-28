@@ -20,3 +20,19 @@ Make sure the summary is clear and accessible, providing a quick yet comprehensi
 This is the transcrit text:
 """
 
+def summary_api():
+    url = request.args.get("url", '')
+    video_id = url.split("=")[1]
+    summary = generate_summary(prompt, get_transcript(video_id))
+    return summary, 200
+
+def get_transcript(video_id):
+    transcript_list = YouTubeTranscriptApi.get_transcript(video_id)
+    transcript = ' '.join([line['text'] for line in transcript_list])
+    return transcript
+
+def generate_summary(prompt, transcript):
+    model = genai.GenerativeModel("gemini-pro")
+    response = model.generate_content(prompt+transcript)
+    return response.text
+
