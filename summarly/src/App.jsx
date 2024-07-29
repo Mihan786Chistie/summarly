@@ -3,12 +3,19 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import DOMPurify from 'dompurify';
 import './App.css';
+import poster from './assets/poster.png';
 
 function App() {
   return (
     <>
-      <h1>Summarly</h1>
-      <Summarizer />
+      <h1 style={{fontFamily: "Playwrite PE", textAlign: "center"}}>Summarly</h1>
+     
+      <h2 style={{textAlign: "center"}}>Your AI Sidekick for Quick YouTube Summaries</h2>
+      <br />
+      <br />
+      <img src={poster} alt="" height="300px" />
+      <br /><br />
+      
     </>
   );
 }
@@ -46,7 +53,7 @@ const Summarizer = () => {
   return (
     <div>
       <button onClick={handleSummarizeClick} disabled={isLoading}>
-        {isLoading ? 'Summarising...' : 'Summarise'}
+        {isLoading ? <span className="loader"></span> : <span style={{color: 'black'}}>Summarise</span>}
       </button>
       {error && <div className="error">{error}</div>}
       <div id="output" className="markdown-content">

@@ -3,11 +3,14 @@
   margin: 0 auto;
   padding: 2rem;
   font-family: "Poppins", sans-serif;
-  background-color: rgba(0,0,0,0.06);
+  background-color: rgba(0,0,0,0.3); /* Adjusted for translucency */
 }
 
 .card {
   padding: 2em;
+  background-color: rgba(0,0,0,0.3); /* Card specific transparency */
+  border-radius: 10px; /* Optional: Adds rounded corners for better aesthetics */
+  backdrop-filter: blur(5px); /* Optional: Adds a blur effect for better readability */
 }
 
 .markdown-content p {
@@ -22,11 +25,34 @@
   font-size: 28px;
 }
 
-.markdown-content ul{
+.markdown-content ul {
   font-size: 18px;
   line-height: 26px;
 }
 
-.markdown-content li{
+.markdown-content li {
   font-size: 15px;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  display: inline-grid;
+  background: #fff;
+  filter: blur(4px) contrast(12);
+}
+.loader:before {
+  content: "";
+  height: 17px;
+  width: 83px;
+  aspect-ratio: 3;
+  --c: #0000 64%,#000 66% 98%,#0000 101%;
+  background:
+    radial-gradient(35% 146% at 50% 159%,var(--c)) 0 0,
+    radial-gradient(35% 146% at 50% -59%,var(--c)) 100% 100%;
+  background-size: calc(200%/3) 50%;
+  background-repeat: repeat-x;
+  animation: l11 .8s infinite linear;
+}
+@keyframes l11{
+  to {background-position: -200% 0,-100% 100%}
 }
