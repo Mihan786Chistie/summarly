@@ -35,7 +35,7 @@ def summary_api():
         # Decode the URL parameter
         decoded_url = urllib.parse.unquote(url.replace('%3A', ':').replace('%2F', '/').replace('%3F', '?').replace('%3D', '=').replace('%26', '&'))
         print("Decoded Url: ",decoded_url)
-        video_id = decoded_url.split("v=")[1]
+        video_id = decoded_url.split("v=")[0]
         transcript = get_transcript(video_id)
         summary = generate_summary(prompt, transcript)
         return jsonify({"summary": summary})
