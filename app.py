@@ -27,7 +27,7 @@ This is the transcript text:
 
 @app.get("/summary")
 def summary_api():
-    url = request.args.get("url", '')
+    url = request.args.get("url", '').replace('%3A', ':').replace('%2F', '/').replace('%3F', '?').replace('%3D', '=').replace('%26', '&')
     if not url:
         return jsonify({"error": "URL parameter is missing"}), 400
 
