@@ -67,4 +67,4 @@ def generate_summary(prompt, transcript):
         raise Exception("Error generating summary")
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="0.0.0.0", port=5000)

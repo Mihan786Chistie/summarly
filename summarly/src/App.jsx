@@ -1,21 +1,16 @@
+/* eslint-disable no-undef */
 import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import DOMPurify from 'dompurify';
 import './App.css';
-import poster from './assets/poster.png';
 
 function App() {
   return (
     <>
-      <h1 style={{fontFamily: "Playwrite PE", textAlign: "center"}}>Summarly</h1>
-     
-      <h2 style={{textAlign: "center"}}>Your AI Sidekick for Quick YouTube Summaries</h2>
-      <br />
-      <br />
-      <img src={poster} alt="" height="300px" />
+      <h1 style={{fontFamily: "Playwrite PE"}}>Summarly</h1>
+      <Summarizer/>
       <br /><br />
-      
     </>
   );
 }
