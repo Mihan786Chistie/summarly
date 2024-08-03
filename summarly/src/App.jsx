@@ -26,7 +26,7 @@ const Summarizer = () => {
     setError(null); // Clear previous error
     chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
       const url = tabs[0].url;
-      fetch(`http://127.0.0.1:5000/summary?url=${encodeURIComponent(url)}`)
+      fetch(`https://summarly-ktkk.onrender.com/summary?url=${encodeURIComponent(url)}`)
         .then(response => response.json())
         .then(data => {
           if (data.error) {

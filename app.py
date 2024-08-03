@@ -3,6 +3,7 @@ import google.generativeai as genai
 import os
 from flask import Flask, request, jsonify
 from youtube_transcript_api import YouTubeTranscriptApi, NoTranscriptFound, VideoUnavailable
+import urllib.parse
 
 # Load environment variables from .env file
 load_dotenv()
@@ -31,7 +32,9 @@ def summary_api():
         return jsonify({"error": "URL parameter is missing"}), 400
 
     try:
-        video_id = url.split("=")[1]
+        # Decode the URL parameter
+        decoded_url = urllib.parse.unquote(url)
+        video_id = decoded_url.split("v=")[1]
         transcript = get_transcript(video_id)
         summary = generate_summary(prompt, transcript)
         return jsonify({"summary": summary})
