@@ -39,6 +39,7 @@ def summary_api():
         print("Video id:", video_id)
         transcript = get_transcript(video_id)
         summary = generate_summary(prompt, transcript)
+        print("Summary: ",summary)
         return jsonify({"summary": summary})
     except (IndexError, VideoUnavailable, NoTranscriptFound) as e:
         # Handle specific errors related to YouTube video ID extraction and transcript retrieval
