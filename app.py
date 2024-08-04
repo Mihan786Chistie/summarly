@@ -36,7 +36,6 @@ def summary_api():
     try:
         # Decode the URL parameter
         decoded_url = urllib.parse.unquote(url)
-        print("Decoded URL:", decoded_url)  # Log the decoded URL
         video_id = decoded_url.split("v=")[1]
         transcript = get_transcript(video_id)
         summary = generate_summary(prompt, transcript)

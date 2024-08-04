@@ -27,12 +27,8 @@ const Summarizer = () => {
 
     chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
       const url = tabs[0].url;
-      console.log('Original URL:', url); // Log the original URL
-
       const encodedUrl = encodeURIComponent(url);
-      console.log('Encoded URL:', encodedUrl); // Log the encoded URL
-
-      fetch(`https://summarly-ktkk.onrender.com/summary?url=${url}`)
+      fetch(`https://summarly-ktkk.onrender.com/summary?url=${encodedUrl}`)
         .then(response => response.json())
         .then(data => {
           if (data.error) {
