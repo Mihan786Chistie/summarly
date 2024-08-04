@@ -4,3 +4,4 @@ python-dotenv
 pathlib
 flask
 gunicorn
+flask_cors
