@@ -2,6 +2,7 @@ from dotenv import load_dotenv
 import google.generativeai as genai
 import os
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from youtube_transcript_api import YouTubeTranscriptApi, NoTranscriptFound, VideoUnavailable
 import urllib.parse
 
@@ -12,6 +13,7 @@ load_dotenv()
 genai.configure(api_key=os.getenv("GEMINI_PRO_API_KEY"))
 
 app = Flask(__name__)
+CORS(app)
 
 # Prompt template for generating the summary
 prompt = """You are a Youtube video summarizer. 

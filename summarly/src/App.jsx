@@ -37,13 +37,16 @@ const Summarizer = () => {
         .then(data => {
           if (data.error) {
             setError(data.error);
+            console.log(error);
           } else {
-            setSummary(data.summary);
+            const sanitizedText = DOMPurify.sanitize(data.summary);
+            setSummary(sanitizedText);
           }
           setIsLoading(false);
         })
         .catch(error => {
           console.error('Error fetching the summary:', error);
+          console.log(error);
           setError('An unexpected error occurred while fetching the summary.');
           setIsLoading(false);
         });
