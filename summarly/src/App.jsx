@@ -32,14 +32,13 @@ const Summarizer = () => {
       const encodedUrl = encodeURIComponent(url);
       console.log('Encoded URL:', encodedUrl); // Log the encoded URL
 
-      fetch(`https://summarly-ktkk.onrender.com/summary?url=${encodedUrl}`)
+      fetch(`https://summarly-ktkk.onrender.com/summary?url=${url}`)
         .then(response => response.json())
         .then(data => {
           if (data.error) {
             setError(data.error);
           } else {
-            const sanitizedText = DOMPurify.sanitize(data.summary);
-            setSummary(sanitizedText);
+            setSummary(data.summary);
           }
           setIsLoading(false);
         })
